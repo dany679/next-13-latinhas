@@ -1,31 +1,20 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { routesObjects } from "@/utils/constants";
+import { toolsObjects } from "@/utils/constants";
 import { Montserrat } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import FreeCounter from "./free-counter";
 
 const montserrat = Montserrat({ weight: "600", subsets: ["latin"] });
 
-const Sidebar = ({
-  apiLimitCount = 0,
-  isPro = false,
-}: {
-  apiLimitCount: number;
-  isPro: boolean;
-}) => {
+const Sidebar = () => {
   const pathName = usePathname();
   return (
     <div className="flex flex-col bg-blackPrimary-800 space-y-4 p-4 h-full  text-white">
       <div className="px-3 py-2 flex-1 ">
-        <Link
-          href="/dashboard"
-          className="flex items-center pl-3 mb-14"
-          as={"image"}
-        >
+        <Link href="/" className="flex items-center pl-3 mb-14">
           <div className="relative w-8 h-8 mr-4">
             <Image
               fill
@@ -37,11 +26,11 @@ const Sidebar = ({
             />
           </div>
           <h1 className={cn("text-2xl font-bold", montserrat.className)}>
-            Genius
+            Localize
           </h1>
         </Link>
         <div className="space-y-1">
-          {Object.entries(routesObjects).map((routeArr) => {
+          {Object.entries(toolsObjects).map((routeArr) => {
             const route = routeArr[1];
             return (
               <Link
@@ -63,7 +52,6 @@ const Sidebar = ({
           })}
         </div>
       </div>
-      <FreeCounter apiLimitCount={apiLimitCount} isPro={isPro} />
     </div>
   );
 };
