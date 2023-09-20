@@ -1,34 +1,22 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<p>Link para visitar o site : 
+<a href="https://front-p-nine.vercel.app/" />Demo</a>
+</p>
+ Qual foi a maior dificuldade que você enfrentou ao realizar o teste?
 
-## Getting Started
+A api do clima que usei inicialmente estava com problemas de estabilidade e acabei trocando
 
-First, run the development server:
+• Descreva a funcionalidade e o por quê da utilização das bibliotecas
+escolhidas por você para concluir o desafio.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+ShadcnUI é uma "biblioteca" na qual em vez de instalar o pacote faz um versao dele no projeto
+axios para o request mas considerando a pouca complexidade ela se torna dispensavel
+toast foi feito com o hot-toast que atualmente acredito ser uma das mais simples e uteis maneiras de criar um toast
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+• Como você se vê daqui a 5 anos?
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Como senior developer , trabalhando no frame mais atual com ts o que acredito que dificilmente alguem ira tirar a coroa do next para o front, ensinando os mais novos ingressados e com um base de conhecimento ainda maior. alem de que uma agua de coco e morar em uma cidade que somente algumas horas de um mar.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+• Caso você tenha dado um “Tchammmm!” na sua aplicação, descreva o
+que você fez, como isso irá melhorar a experiência do usuário.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Fiz um sidebar e dei uma "cara" para a aplicação, coloquei a pesquisar por gps e nome, e acredito ter cumprido todas as etapas do desafio.
