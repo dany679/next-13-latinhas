@@ -14,8 +14,6 @@ interface getDay {
   dayIndexNumber: number;
 }
 export const getDayData = ({ date, dayIndexNumber }: getDay) => {
-  // console.log(date);
   const day = moment(date).day();
-  // console.log(day);
   return semana[day];
 };

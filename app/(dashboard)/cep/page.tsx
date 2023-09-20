@@ -45,9 +45,6 @@ const CodePage = () => {
   const onSubmitting = async (values: z.infer<typeof formSchema>) => {
     try {
       setData(null);
-      const url = `https://viacep.com.br/ws/${values?.uf}/${values?.city}/${values?.street}/json/`;
-
-      console.log(url);
       const req = await axios.get(
         `https://viacep.com.br/ws/${values?.uf}/${values?.city}/${values?.street}/json/`
       );
