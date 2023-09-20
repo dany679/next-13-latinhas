@@ -48,7 +48,6 @@ const CodePage = () => {
       const req = await axios.get(
         `https://viacep.com.br/ws/${values?.uf}/${values?.city}/${values?.street}/json/`
       );
-      console.log(req);
       setData(req.data);
       form.reset();
     } catch (error: any) {

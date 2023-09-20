@@ -40,7 +40,6 @@ const CodePage = () => {
   };
 
   const isSubmitting = form.formState.isSubmitting;
-  console.log(process.env.NEXT_API_KEY);
   const onSubmitting = async (values?: z.infer<typeof formSchema>) => {
     try {
       const where =
@@ -49,7 +48,7 @@ const CodePage = () => {
           : location;
 
       const req = await axios.get(
-        `http://api.weatherapi.com/v1/forecast.json?key=181c480489154c52b10184415231809&q=${where}&days=7&aqi=yes&alerts=yes`
+        `https://api.weatherapi.com/v1/forecast.json?key=181c480489154c52b10184415231809&q=${where}&days=7`
       );
       setData(req.data);
 
