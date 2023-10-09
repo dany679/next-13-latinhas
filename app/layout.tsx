@@ -19,8 +19,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="h-full ">
-      <body className={cn("h-full", inter)}>
+    <html lang="en" className=" min-h-screen">
+      <body className={cn("min-h-screen", inter)}>
         <ProviderToaster />
         {children}
       </body>

@@ -21,6 +21,12 @@ module.exports = {
         blackPrimary: {
           800: "#111827",
         },
+        orangePrimary: {
+          800: "#F05123",
+          500: "#F89C4D",
+          300: "#FCBD73",
+          100: "#F72A3",
+        },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
