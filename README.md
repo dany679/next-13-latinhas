@@ -23,22 +23,11 @@ MIT
 
 ### Install packages
 
-```shell
-yarn
-```
-
-### Setup .env file
-
-
-```shell
-npx prisma db push
-
-```
 
 ### Start the app
 
 ```shell
-yarn  dev
+yarn  
 ```
 
 ### start
