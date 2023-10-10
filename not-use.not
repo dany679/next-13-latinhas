@@ -1,0 +1,19 @@
+version: "3"
+services:
+  node:
+    build: .
+    command: "yarn start"
+    working_dir: /home/node/app/
+    environment:
+      - NODE_ENV=production
+      - JSON_WEB_TOKEN=7669942a940561309ffab930ab7272c9cc17e3b4f9a429cab290e8ebaa4600045973adb6f5842b2adf8850070169da0226f6f1763ea833235404f00010cb06b8
+      - SHADOW_DATABASE_URL_TEST=mysql://root:VjoAaAl77QSSQdptGSjy@containers-us-west-100.railway.app:7871/railway
+      - DATABASE_URL_TEST=mysql://r0hzu6oofwz6zk3nedfr:pscale_pw_wzfdkBlP5RS5Qs0cX3WhsSBdhearY9smN3tHXyCHIuw@aws.connect.psdb.cloud/planetdeveuni?sslaccept=strict
+      - SHADOW_DATABASE_URL=mysql://u644794696_shadowTecno:A:&Purf;u|6@185.213.81.205:3306/u644794696_shadowTecno
+      - DATABASE_URL=mysql://u644794696_danie:A:&Purf;u|6@185.213.81.205:3306/u644794696_tecnoflora
+      - PORT=3000
+      - JSON_WEB_TOKEN_REFRESH=0087d1b585242a76bdb36cb84e696a6e342f6d661291e576bfeee47f7f17b3c6da7e2f5f530efa6c8ab0c6cd6ce5aaefe7f47d82072da2835add191798095a7f
+    expose:
+      - 3000
+    ports:
+      - 3000:3000
