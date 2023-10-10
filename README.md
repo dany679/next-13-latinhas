@@ -1,22 +1,49 @@
-<p>Link para visitar o site : 
-<a href="https://front-p-nine.vercel.app/" />Demo</a>
-</p>
- Qual foi a maior dificuldade que você enfrentou ao realizar o teste?
 
-A api do clima que usei inicialmente estava com problemas de estabilidade e acabei trocando
+## 🚀 Tecnologias
 
-• Descreva a funcionalidade e o por quê da utilização das bibliotecas
-escolhidas por você para concluir o desafio.
+- Tailwind design
+- Tailwind animations and effects
+- form-hooks
+- How to reuse layouts
+- Folder structure in Next 13 App Router
 
-ShadcnUI é uma "biblioteca" na qual em vez de instalar o pacote faz um versao dele no projeto
-axios para o request mas considerando a pouca complexidade ela se torna dispensavel
-toast foi feito com o hot-toast que atualmente acredito ser uma das mais simples e uteis maneiras de criar um toast
+### Prerequisites
 
-• Como você se vê daqui a 5 anos?
+**Node version 18.x.x**
 
-Como senior developer , trabalhando no frame mais atual com ts o que acredito que dificilmente alguem ira tirar a coroa do next para o front, ensinando os mais novos ingressados e com um base de conhecimento ainda maior. alem de que uma agua de coco e morar em uma cidade que somente algumas horas de um mar.
+## 💻 Projeto
 
-• Caso você tenha dado um “Tchammmm!” na sua aplicação, descreva o
-que você fez, como isso irá melhorar a experiência do usuário.
+O projeto sera um site para gerar dados através do prompt desenvolvido com as tecnologias listadas acima o deploy foi feito no <a href="https://vercel.com/" /> vercel</a> para rodar no seu próprio computador lembre de acessar o stripe e openIA e buscar os dados em branco do arquivo .env abaixo
 
-Fiz um sidebar e dei uma "cara" para a aplicação, coloquei a pesquisar por gps e nome, e acredito ter cumprido todas as etapas do desafio.
+## Licença
+
+MIT
+
+## How To Run
+
+### Install packages
+
+```shell
+yarn
+```
+
+### Setup .env file
+
+
+```shell
+npx prisma db push
+
+```
+
+### Start the app
+
+```shell
+yarn  dev
+```
+
+### start
+
+```shell
+$ yarn start
+
+```
