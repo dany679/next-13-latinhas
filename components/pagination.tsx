@@ -9,9 +9,9 @@ export default function PaginationControlled({
   page: number;
   setPage: (page: number) => void;
   count: number;
-  limit: number;
+  limit?: number;
 }) {
-  const totalPages = Math.ceil(count / limit);
+  const totalPages = Math.ceil(count / (limit ?? 20));
   return (
     <div className="flex flex-row w-full justify-center items-center text-gray-500">
       <ArrowBigLeft

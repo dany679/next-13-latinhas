@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Table,
   TableBody,
@@ -10,7 +12,9 @@ import { cn } from "@/lib/utils";
 import { BASE_HTTP } from "@/utils/constants";
 import axios from "axios";
 import { Trash2 } from "lucide-react";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import toast from "react-hot-toast";
+import Empty from "../empty";
 
 interface IProduct {
   id: number;
@@ -22,22 +26,37 @@ interface TableProductsProps {
     id: number;
     name: string;
   }[];
-  handleCb: () => void;
-  handleUpdate: (id: false | IProduct) => void;
-  update?: number;
+  // handleCb: () => void;
+  // handleUpdate?: (id: false | IProduct) => void;
+  // update?: number;
 }
 
 const TableProducts = ({
   data,
-  handleCb,
-  handleUpdate,
-  update,
-}: TableProductsProps) => {
+}: // handleCb,
+// handleUpdate,
+// update,
+TableProductsProps) => {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const pathname = usePathname();
+  const id = searchParams.get("id");
+  const update = Number(id);
+  const url = `${pathname}?${searchParams}`;
+
+  const handleUpdate = (productId: number) => {
+    const newUrl = id
+      ? url.replace(`&id=${update}`, `&id=${productId}`)
+      : url + `&id=${productId}`;
+    console.log(newUrl, "NEW URL");
+    router.push(`${newUrl}`, { scroll: false });
+  };
+
   const handleDeleteProduct = async (id: number) => {
     try {
       const req = await axios.delete(`${BASE_HTTP}/product/${id}`);
       toast.success("Produto detetado com sucesso");
-      handleCb();
+      router.refresh();
     } catch (error) {
       toast.error(
         "Erro ao detetar o produto verifique se há demandas feitas com o produto"
@@ -66,7 +85,7 @@ const TableProducts = ({
                 )}
               >
                 <TableCell className="font-medium ">{product.id}</TableCell>
-                <TableCell onClick={() => handleUpdate(product)}>
+                <TableCell onClick={() => handleUpdate(product.id)}>
                   {product.name}
                 </TableCell>
                 <TableCell className="text-right">
@@ -81,6 +100,9 @@ const TableProducts = ({
             ))}
         </TableBody>
       </Table>
+      {data && data.length === 0 && (
+        <Empty label={"Nenhum Produto cadastrado"} />
+      )}
     </div>
   );
 };
