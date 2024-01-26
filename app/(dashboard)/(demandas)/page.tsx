@@ -27,6 +27,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import useAxiosAuth from "@/lib/hooks/useAxiosAuth";
 import { cn } from "@/lib/utils";
 import { BASE_HTTP, toolsObjects } from "@/utils/constants";
 import { STATUS_DEMAND } from "@/utils/enum";
@@ -35,6 +36,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
 import { addDays, format } from "date-fns";
 import { CalendarIcon } from "lucide-react";
+import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
@@ -60,7 +62,13 @@ export interface IDemand {
   };
 }
 [];
+
 export default function DemandasPage() {
+  const session = useSession();
+  console.log(session.data?.user);
+  const axiosAuth = useAxiosAuth();
+  console.log(axiosAuth);
+
   const router = useRouter();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -87,7 +95,7 @@ export default function DemandasPage() {
   const onSubmitting = async (values: z.infer<typeof formSchema>) => {
     try {
       update
-        ? await axios.put(`${BASE_HTTP}/demand/${values.id}`, {
+        ? await axiosAuth.put(`${BASE_HTTP}/demand/${values.id}`, {
             start_at: values.start_at,
             finish_at: values.finish_at,
             status: values.status,
@@ -112,8 +120,8 @@ export default function DemandasPage() {
 
   const getDemands = async () => {
     try {
-      const { data } = await axios.get(
-        `${BASE_HTTP}/demand?page=${pageNumber}&limit=${pagination.limit}`
+      const { data } = await axiosAuth.get(
+        `/demand?page=${pageNumber}&limit=${pagination.limit}`
       );
       setPagination(data.pagination);
       setData(data.demands);

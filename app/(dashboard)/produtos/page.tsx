@@ -1,8 +1,8 @@
 import { Heading } from "@/components/Heading";
 import PaginationPage from "@/components/pagination-page";
 import TableProducts from "@/components/tables/table-products";
-import { BASE_HTTP, toolsObjects } from "@/utils/constants";
-import axios from "axios";
+import { axiosAuth } from "@/lib/axios";
+import { toolsObjects } from "@/utils/constants";
 import { use } from "react";
 import FormProducts from "./form";
 const page = toolsObjects.products;
@@ -17,9 +17,7 @@ const ProdutosPage = ({
 
   const getProduct = async () => {
     try {
-      const { data } = await axios.get(
-        `${BASE_HTTP}/product?page=${pageNumber}`
-      );
+      const { data } = await axiosAuth.get(`/product?page=${pageNumber}`);
       return data;
     } catch (error) {
       // toast.error("Erro ao carregar os produtos");
